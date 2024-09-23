@@ -4,3 +4,5 @@ Como usar:
 3) pip install flask pandas request
 4) cd "nome do seu ambiente"
 5) coloque no terminal: python app.py
+
+Coloque no navegador:http://127.0.0.1:5000/crimes
