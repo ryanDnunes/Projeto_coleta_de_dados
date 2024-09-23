@@ -1,0 +1,43 @@
+import requests
+
+# URL base da API
+base_url = 'http://localhost:5000/crimes'
+
+# 1. Consultar todos os dados
+response = requests.get(base_url)
+print('GET /crimes:', response.json())
+
+# 2. Inserir novos dados
+new_crime = {
+    "id": 1,
+    "State": "ANDHRA PRADESH",
+    "Year": 2001,
+    "Rape": 871,
+    "K&A": 765,
+    "DD": 420,
+    "AoW": 3544,
+    "AoM": 22,
+    "DV": 5791,
+    "WT": 7
+}
+response = requests.post(base_url, json=new_crime)
+print('POST /crimes:', response.json())
+
+# 3. Atualizar dados existentes
+updated_crime = {
+    "State": "NEW ANDHRA PRADESH",
+    "Year": 2001,
+    "Rape": 900,
+    "K&A": 800,
+    "DD": 430,
+    "AoW": 3550,
+    "AoM": 25,
+    "DV": 5800,
+    "WT": 8
+}
+response = requests.put(f"{base_url}/1", json=updated_crime)  # Substitua 1 pelo ID desejado
+print('PUT /crimes/1:', response.json())
+
+# 4. Deletar dados existentes
+response = requests.delete(f"{base_url}/1")  # Substitua 1 pelo ID desejado
+print('DELETE /crimes/1:', response.status_code)
